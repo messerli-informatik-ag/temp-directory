@@ -5,9 +5,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{D7AE96
 		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempDirectory", "TempDirectory\TempDirectory.csproj", "{0C53672D-AC3E-4D75-899C-BE5F3FE5FB39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempDirectory.Test", "TempDirectory.Test\TempDirectory.Test.csproj", "{6DF628B9-E147-4605-891F-0A25ADE328E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C53672D-AC3E-4D75-899C-BE5F3FE5FB39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C53672D-AC3E-4D75-899C-BE5F3FE5FB39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C53672D-AC3E-4D75-899C-BE5F3FE5FB39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C53672D-AC3E-4D75-899C-BE5F3FE5FB39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DF628B9-E147-4605-891F-0A25ADE328E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF628B9-E147-4605-891F-0A25ADE328E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF628B9-E147-4605-891F-0A25ADE328E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF628B9-E147-4605-891F-0A25ADE328E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

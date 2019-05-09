@@ -3,7 +3,7 @@
     <metadata>
         <id>Messerli.TempDirectory</id>
         <version>0.0.0</version>
-        <authors>Jan Nils Ferner, Flavio Suter</authors>
+        <authors>Jan Nils Ferner, Dominic Groth, Flavio Suter</authors>
         <owners>messerli-informatik-ag</owners>
         <projectUrl>https://github.com/messerli-informatik-ag/temp-directory</projectUrl>
         <license type="expression">MIT or Apache-2.0</license>
