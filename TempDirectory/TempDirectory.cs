@@ -3,21 +3,26 @@ using System.IO;
 
 namespace Messerli.TempDirectory
 {
-    internal class TempDirectory : ITempDirectory
+    public delegate void OnDispose();
+
+    public class TempDirectory: IDisposable
     {
+        private readonly OnDispose _onDispose;
+
+        public TempDirectory(string name, string fullName, OnDispose onDispose)
+        {
+            Name = name;
+            FullName = fullName;
+            _onDispose = onDispose;
+        }
+
         public string Name { get; }
 
         public string FullName { get; }
 
-        public TempDirectory(string name, string fullName)
-        {
-            Name = name;
-            FullName = fullName;
-        }
-
         public void Dispose()
         {
-            Directory.Delete(FullName, true);
+            _onDispose();
         }
     }
 }

@@ -24,19 +24,24 @@ namespace Messerli.TempDirectory
             throw new System.NotImplementedException();
         }
 
-        public ITempDirectory Create()
+        public TempDirectory Create()
         {
             throw new System.NotImplementedException();
         }
 
-        private string CreateTempDirectory(string directoryName)
+        private static string CreateTempDirectory(string directoryName)
         {
-            var tempPath = System.IO.Path.GetTempPath();
-            var path = System.IO.Path.Combine(tempPath, directoryName);
+            var tempPath = Path.GetTempPath();
+            var path = Path.Combine(tempPath, directoryName);
 
             Directory.CreateDirectory(path);
 
             return path;
+        }
+
+        private static OnDispose CreateDirectoryDeletionFn(string directoryPath)
+        {
+            return () => Directory.Delete(directoryPath, true);
         }
     }
 }
