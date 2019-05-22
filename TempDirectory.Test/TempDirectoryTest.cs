@@ -6,12 +6,12 @@ namespace TempDirectory.Test
 {
     public class TempDirectoryTest
     {
-        private const string tempDirectoryName = "temp_directory_test";
+        private const string TempDirectoryName = "temp_directory_test";
 
         [Fact]
         public void CreatesTempDirectory()
         {
-            using (var generateFileStructure = new TempDir(tempDirectoryName))
+            using (var generateFileStructure = new TempDir(TempDirectoryName))
             {
                 var path = generateFileStructure.Path;
                 Assert.True(Directory.Exists(path));
@@ -21,7 +21,7 @@ namespace TempDirectory.Test
         [Fact]
         public void RemovesTempDirectory()
         {
-            var generateFileStructure = new TempDir(tempDirectoryName);
+            var generateFileStructure = new TempDir(TempDirectoryName);
             var path = generateFileStructure.Path;
             Assert.True(Directory.Exists(path));
 
