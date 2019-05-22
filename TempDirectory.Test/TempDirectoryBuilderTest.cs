@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using Messerli.TempDirectory;
 using Xunit;
-using Jetbrains.Annotations;
+using JetBrains.Annotations;
 
 namespace TempDirectory.Test
 {
@@ -35,7 +35,7 @@ namespace TempDirectory.Test
         {
             using (var tempDirectory = tempDirectoryBuilder.Create())
             {
-                Assert.Contains(tempDirectory.FullName, tempDirectory.Name);
+                Assert.Contains(tempDirectory.Name, tempDirectory.FullName);
             }
         }
 
@@ -49,7 +49,53 @@ namespace TempDirectory.Test
             }
         }
 
-        [UsedImplicitely]
+        [Fact]
+        public void PrefixIsInName()
+        {
+            using (var tempDirectory = new TempDirectoryBuilder().Prefix(Prefix).Create())
+            {
+                Assert.Contains(Prefix, tempDirectory.Name);
+            }
+        }
+
+        [Fact]
+        public void SuffixIsInName()
+        {
+            using (var tempDirectory = new TempDirectoryBuilder().Suffix(Suffix).Create())
+            {
+                Assert.Contains(Suffix, tempDirectory.Name);
+            }
+        }
+
+        [Fact]
+        public void SeparatorsAreInName()
+        {
+            using (var tempDirectory = new TempDirectoryBuilder()
+                .Prefix(Prefix)
+                .PrefixSeparator(PrefixSeparator)
+                .Suffix(Prefix)
+                .SuffixSeparator(SuffixSeparator)
+                .Create())
+            {
+                Assert.Contains(PrefixSeparator, tempDirectory.Name);
+                Assert.Contains(SuffixSeparator, tempDirectory.Name);
+            }
+        }
+
+        [Fact]
+        public void SeparatorsAreNotInNameWithoutPrefixOrSuffix()
+        {
+            using (var tempDirectory = new TempDirectoryBuilder()
+                .PrefixSeparator(PrefixSeparator)
+                .SuffixSeparator(SuffixSeparator)
+                .Create())
+            {
+                Assert.DoesNotContain(PrefixSeparator, tempDirectory.Name);
+                Assert.DoesNotContain(SuffixSeparator, tempDirectory.Name);
+            }
+        }
+
+        [UsedImplicitly]
         public static IEnumerable<object[]> GetTempDirectoryBuilderConfigurations()
         {
             yield return new object[] { new TempDirectoryBuilder() };
@@ -63,7 +109,7 @@ namespace TempDirectory.Test
 
         private const string Prefix = "prefix";
         private const string Suffix = "prefix";
-        private const string PrefixSeparator = "-";
-        private const string SuffixSeparator = "-";
+        private const string PrefixSeparator = "@";
+        private const string SuffixSeparator = ".";
     }
 }
