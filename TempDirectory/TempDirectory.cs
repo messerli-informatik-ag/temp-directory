@@ -3,38 +3,21 @@ using System.IO;
 
 namespace Messerli.TempDirectory
 {
-    public class TempDirectory : IDisposable
+    internal class TempDirectory : ITempDirectory
     {
-        public string Path { get; }
+        public string Name { get; }
 
-        public TempDirectory(string directoryName)
+        public string FullName { get; }
+
+        public TempDirectory(string name, string fullName)
         {
-            try
-            {
-                Path = CreateTempDirectory(directoryName);
-            }
-            catch (Exception)
-            {
-                Dispose();
-                throw;
-            }
+            Name = name;
+            FullName = fullName;
         }
 
         public void Dispose()
         {
-            Directory.Delete(Path, true);
+            Directory.Delete(FullName, true);
         }
-
-        private static string CreateTempDirectory(string directoryName)
-        {
-            var tempPath = System.IO.Path.GetTempPath();
-            var path = System.IO.Path.Combine(tempPath, directoryName);
-
-            Directory.CreateDirectory(path);
-
-            return path;
-        }
-
-
     }
 }

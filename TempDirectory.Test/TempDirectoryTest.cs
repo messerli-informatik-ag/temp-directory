@@ -1,6 +1,6 @@
 using System.IO;
+using Messerli.TempDirectory;
 using Xunit;
-using TempDir = Messerli.TempDirectory.TempDirectory;
 
 namespace TempDirectory.Test
 {
@@ -28,6 +28,11 @@ namespace TempDirectory.Test
             generateFileStructure.Dispose();
 
             Assert.False(Directory.Exists(path));
+        }
+
+        private static ITempDirectory CreateTempDirectory()
+        {
+            return new TempDir(TempDirectoryName)
         }
     }
 }
