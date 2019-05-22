@@ -1,7 +1,5 @@
 namespace Messerli.TempDirectory
 {
-    public delegate TempDirectory TempDirectoryFactory;
-
     public interface ITempDirectoryBuilder
     {
         ITempDirectoryBuilder Prefix(string prefix);
