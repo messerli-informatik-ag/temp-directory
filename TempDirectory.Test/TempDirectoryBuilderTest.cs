@@ -108,7 +108,7 @@ namespace TempDirectory.Test
         }
 
         private const string Prefix = "prefix";
-        private const string Suffix = "prefix";
+        private const string Suffix = "suffix";
         private const string PrefixSeparator = "@";
         private const string SuffixSeparator = ".";
     }
