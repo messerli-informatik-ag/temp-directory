@@ -46,11 +46,8 @@ namespace Messerli.TempDirectory
         public TempDirectory Create()
         {
             var tempPath = Path.GetTempPath();
-            var guid = Guid.NewGuid().ToString();
-            var prefixSubstring = string.IsNullOrEmpty(_prefix) ? "" : _prefix + _prefixSeparator;
-            var suffixSubstring = string.IsNullOrEmpty(_suffix) ? "" : _suffix + _suffixSeparator;
-
-            var directoryName = $"{prefixSubstring}{guid}{suffixSubstring}";
+            var directoryName = GenerateDirectoryName();
+            
             var path = Path.Combine(tempPath, directoryName);
 
             Directory.CreateDirectory(path);
@@ -68,6 +65,14 @@ namespace Messerli.TempDirectory
                 suffixSeparator ?? _suffixSeparator);
         }
 
+        private string GenerateDirectoryName()
+        {
+            var guid = Guid.NewGuid().ToString();
+            var prefixSubstring = string.IsNullOrEmpty(_prefix) ? "" : _prefix + _prefixSeparator;
+            var suffixSubstring = string.IsNullOrEmpty(_suffix) ? "" : _suffix + _suffixSeparator;
+
+           return $"{prefixSubstring}{guid}{suffixSubstring}";
+        }
         private static OnDispose CreateDirectoryDeletionFn(string directoryPath)
         {
             return () => Directory.Delete(directoryPath, true);
