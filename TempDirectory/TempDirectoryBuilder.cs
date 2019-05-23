@@ -47,7 +47,6 @@ namespace Messerli.TempDirectory
         {
             var tempPath = Path.GetTempPath();
             var directoryName = GenerateDirectoryName();
-
             var path = Path.Combine(tempPath, directoryName);
 
             Directory.CreateDirectory(path);
