@@ -51,7 +51,7 @@ namespace Messerli.TempDirectory
             var path = Path.Combine(tempPath, directoryName);
 
             Directory.CreateDirectory(path);
-            var onDispose = CreateDirectoryDeletionFn(path);
+            var onDispose = CreateDirectoryDeletionFunction(path);
 
             return new TempDirectory(directoryName, path, onDispose);
         }
@@ -73,7 +73,7 @@ namespace Messerli.TempDirectory
 
            return $"{prefixSubstring}{guid}{suffixSubstring}";
         }
-        private static OnDispose CreateDirectoryDeletionFn(string directoryPath)
+        private static OnDispose CreateDirectoryDeletionFunction(string directoryPath)
         {
             return () => Directory.Delete(directoryPath, true);
         }
