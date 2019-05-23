@@ -56,7 +56,11 @@ namespace Messerli.TempDirectory
             return new TempDirectory(directoryName, path, onDispose);
         }
 
-        private ITempDirectoryBuilder DeepClone(string prefix = null, string suffix = null, string prefixSeparator = null, string suffixSeparator = null)
+        private ITempDirectoryBuilder DeepClone(
+            string prefix = null,
+            string suffix = null,
+            string prefixSeparator = null,
+            string suffixSeparator = null)
         {
             return new TempDirectoryBuilder(
                 prefix ?? _prefix,
