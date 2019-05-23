@@ -24,26 +24,23 @@ namespace Messerli.TempDirectory
 
         public ITempDirectoryBuilder Prefix(string prefix)
         {
-            _prefix = prefix;
-            return DeepClone();
+            // ReSharper disable once ArgumentsStyleNamedExpression
+            return DeepClone(prefix: prefix);
         }
 
         public ITempDirectoryBuilder PrefixSeparator(string prefixSeparator)
         {
-            _prefixSeparator = prefixSeparator;
-            return DeepClone();
+            return DeepClone(prefixSeparator: prefixSeparator);
         }
 
         public ITempDirectoryBuilder Suffix(string suffix)
         {
-            _suffix = suffix;
-            return DeepClone();
+            return DeepClone(suffix: suffix);
         }
 
         public ITempDirectoryBuilder SuffixSeparator(string suffixSeparator)
         {
-            _suffixSeparator = suffixSeparator;
-            return DeepClone();
+            return DeepClone(suffixSeparator: suffixSeparator);
         }
 
         public TempDirectory Create()
@@ -62,9 +59,9 @@ namespace Messerli.TempDirectory
             return new TempDirectory(directoryName, path, onDispose);
         }
 
-        private ITempDirectoryBuilder DeepClone()
+        private ITempDirectoryBuilder DeepClone(string prefix = null, string suffix = null, string prefixSeparator = null, string suffixSeparator = null)
         {
-            return new TempDirectoryBuilder(_prefix, _suffix, _prefixSeparator, _suffixSeparator);
+            return new TempDirectoryBuilder(prefix ?? _prefix, suffix ?? _suffix, prefixSeparator ?? _prefixSeparator, suffixSeparator ?? _suffixSeparator);
         }
 
         private static OnDispose CreateDirectoryDeletionFn(string directoryPath)
