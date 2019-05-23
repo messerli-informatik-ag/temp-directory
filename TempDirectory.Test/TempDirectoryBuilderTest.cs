@@ -54,7 +54,7 @@ namespace TempDirectory.Test
         {
             using (var tempDirectory = new TempDirectoryBuilder().Prefix(Prefix).Create())
             {
-                Assert.Contains(Prefix, tempDirectory.Name);
+                Assert.StartsWith(Prefix, tempDirectory.Name);
             }
         }
 
@@ -63,7 +63,7 @@ namespace TempDirectory.Test
         {
             using (var tempDirectory = new TempDirectoryBuilder().Suffix(Suffix).Create())
             {
-                Assert.Contains(Suffix, tempDirectory.Name);
+                Assert.EndsWith(Suffix, tempDirectory.Name);
             }
         }
 
