@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using System.IO;
-using Messerli.TempDirectory;
-using Xunit;
 using JetBrains.Annotations;
+using Xunit;
 
-namespace TempDirectory.Test
+namespace Messerli.TempDirectory.Test
 {
     public class TempDirectoryBuilderTest
     {
