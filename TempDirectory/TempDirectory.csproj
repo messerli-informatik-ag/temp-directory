@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-      <Version>0.1.0</Version>
-      <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Version>0.1.0</Version>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>Messerli.TempDirectory</RootNamespace>
+    <AssemblyName>Messerli.TempDirectory</AssemblyName>
   </PropertyGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
