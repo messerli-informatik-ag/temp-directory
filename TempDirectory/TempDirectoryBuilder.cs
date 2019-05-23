@@ -69,7 +69,7 @@ namespace Messerli.TempDirectory
         {
             var guid = Guid.NewGuid().ToString();
             var prefixSubstring = string.IsNullOrEmpty(_prefix) ? "" : _prefix + _prefixSeparator;
-            var suffixSubstring = string.IsNullOrEmpty(_suffix) ? "" : _suffix + _suffixSeparator;
+            var suffixSubstring = string.IsNullOrEmpty(_suffix) ? "" : _suffixSeparator + _suffix;
 
            return $"{prefixSubstring}{guid}{suffixSubstring}";
         }
