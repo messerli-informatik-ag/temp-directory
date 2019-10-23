@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
     <metadata>
-        <id>Messerli.TempDirectory</id>
-        <version>0.2.0</version>
-        <authors>Jan Nils Ferner, Dominic Groth, Flavio Suter</authors>
-        <owners>messerli-informatik-ag</owners>
-        <projectUrl>https://github.com/messerli-informatik-ag/temp-directory</projectUrl>
-        <license type="expression">MIT or Apache-2.0</license>
-        <description>A TempDirectoryBuilder that provides unique temporary directories and automatically cleans them up for you.</description>
-        <copyright>Copyright ©2019 Messerli Informatik Ag</copyright>
         <tags>temp directory</tags>
     </metadata>
 </package>
