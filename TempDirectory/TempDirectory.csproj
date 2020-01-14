@@ -12,7 +12,6 @@
         <PackageId>Messerli.TempDirectory</PackageId>
         <PackageTags>temp directory</PackageTags>
         <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
-        <Authors>Jan Nils Ferner, Dominic Groth, Flavio Suter</Authors>
         <Copyright>© Messerli Informatik AG. All rights reserved.</Copyright>
         <Description>A TempDirectoryBuilder that provides unique temporary directories and automatically cleans them up for you.</Description>
     </PropertyGroup>
