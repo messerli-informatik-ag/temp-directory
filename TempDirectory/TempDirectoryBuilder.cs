@@ -5,10 +5,10 @@ namespace Messerli.TempDirectory
 {
     public sealed class TempDirectoryBuilder : ITempDirectoryBuilder
     {
-        private string _prefix = string.Empty;
-        private string _suffix = string.Empty;
-        private string _prefixSeparator = "-";
-        private string _suffixSeparator = "-";
+        private readonly string _prefix = string.Empty;
+        private readonly string _suffix = string.Empty;
+        private readonly string _prefixSeparator = "-";
+        private readonly string _suffixSeparator = "-";
 
         public TempDirectoryBuilder()
         {
