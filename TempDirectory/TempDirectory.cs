@@ -19,9 +19,6 @@ namespace Messerli.TempDirectory
 
         public string FullName { get; }
 
-        public void Dispose()
-        {
-            _onDispose();
-        }
+        public void Dispose() => _onDispose();
     }
 }

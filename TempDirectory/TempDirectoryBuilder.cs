@@ -23,25 +23,16 @@ namespace Messerli.TempDirectory
         }
 
         public ITempDirectoryBuilder Prefix(string prefix)
-        {
-            // ReSharper disable once ArgumentsStyleNamedExpression
-            return DeepClone(prefix: prefix);
-        }
+            => DeepClone(prefix: prefix);
 
         public ITempDirectoryBuilder PrefixSeparator(string prefixSeparator)
-        {
-            return DeepClone(prefixSeparator: prefixSeparator);
-        }
+            => DeepClone(prefixSeparator: prefixSeparator);
 
         public ITempDirectoryBuilder Suffix(string suffix)
-        {
-            return DeepClone(suffix: suffix);
-        }
+            => DeepClone(suffix: suffix);
 
         public ITempDirectoryBuilder SuffixSeparator(string suffixSeparator)
-        {
-            return DeepClone(suffixSeparator: suffixSeparator);
-        }
+            => DeepClone(suffixSeparator: suffixSeparator);
 
         public TempDirectory Create()
         {
@@ -60,13 +51,11 @@ namespace Messerli.TempDirectory
             string suffix = null,
             string prefixSeparator = null,
             string suffixSeparator = null)
-        {
-            return new TempDirectoryBuilder(
+            => new TempDirectoryBuilder(
                 prefix ?? _prefix,
                 suffix ?? _suffix,
                 prefixSeparator ?? _prefixSeparator,
                 suffixSeparator ?? _suffixSeparator);
-        }
 
         private string GenerateDirectoryName()
         {
@@ -78,8 +67,6 @@ namespace Messerli.TempDirectory
         }
 
         private static OnDispose CreateDirectoryDeletionFunction(string directoryPath)
-        {
-            return () => Directory.Delete(directoryPath, true);
-        }
+            => () => Directory.Delete(directoryPath, true);
     }
 }
