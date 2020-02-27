@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Messerli.TempDirectory.Test
 {
-    public class TempDirectoryBuilderTest
+    public sealed class TempDirectoryBuilderTest
     {
         private const string Prefix = "prefix";
         private const string Suffix = "suffix";

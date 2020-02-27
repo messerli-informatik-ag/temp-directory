@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Messerli.TempDirectory
 {
-    public class TempDirectoryBuilder : ITempDirectoryBuilder
+    public sealed class TempDirectoryBuilder : ITempDirectoryBuilder
     {
         private string _prefix = string.Empty;
         private string _suffix = string.Empty;
