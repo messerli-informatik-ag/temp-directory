@@ -1,11 +1,10 @@
 ﻿using System;
-using System.IO;
 
 namespace Messerli.TempDirectory
 {
     public delegate void OnDispose();
 
-    public class TempDirectory: IDisposable
+    public sealed class TempDirectory : IDisposable
     {
         private readonly OnDispose _onDispose;
 
@@ -20,9 +19,6 @@ namespace Messerli.TempDirectory
 
         public string FullName { get; }
 
-        public void Dispose()
-        {
-            _onDispose();
-        }
+        public void Dispose() => _onDispose();
     }
 }
