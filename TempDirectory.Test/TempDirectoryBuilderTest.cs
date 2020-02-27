@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using JetBrains.Annotations;
+﻿using System.IO;
 using Xunit;
 
 namespace Messerli.TempDirectory.Test
@@ -14,7 +12,7 @@ namespace Messerli.TempDirectory.Test
 
         [Theory]
         [MemberData(nameof(GetTempDirectoryBuilderConfigurations))]
-        public void CreatesTempDirectory(TempDirectoryBuilder tempDirectoryBuilder)
+        public void CreatesTempDirectory(ITempDirectoryBuilder tempDirectoryBuilder)
         {
             using var tempDirectory = tempDirectoryBuilder.Create();
             Assert.True(Directory.Exists(tempDirectory.FullName));
@@ -22,7 +20,7 @@ namespace Messerli.TempDirectory.Test
 
         [Theory]
         [MemberData(nameof(GetTempDirectoryBuilderConfigurations))]
-        public void DeletesTempDirectory(TempDirectoryBuilder tempDirectoryBuilder)
+        public void DeletesTempDirectory(ITempDirectoryBuilder tempDirectoryBuilder)
         {
             var tempDirectory = tempDirectoryBuilder.Create();
             var fullName = tempDirectory.FullName;
@@ -34,7 +32,7 @@ namespace Messerli.TempDirectory.Test
 
         [Theory]
         [MemberData(nameof(GetTempDirectoryBuilderConfigurations))]
-        public void FullNameContainsName(TempDirectoryBuilder tempDirectoryBuilder)
+        public void FullNameContainsName(ITempDirectoryBuilder tempDirectoryBuilder)
         {
             using var tempDirectory = tempDirectoryBuilder.Create();
             Assert.Contains(tempDirectory.Name, tempDirectory.FullName);
@@ -42,7 +40,7 @@ namespace Messerli.TempDirectory.Test
 
         [Theory]
         [MemberData(nameof(GetTempDirectoryBuilderConfigurations))]
-        public void FullNameIsNotName(TempDirectoryBuilder tempDirectoryBuilder)
+        public void FullNameIsNotName(ITempDirectoryBuilder tempDirectoryBuilder)
         {
             using var tempDirectory = tempDirectoryBuilder.Create();
             Assert.NotEqual(tempDirectory.FullName, tempDirectory.Name);
@@ -86,16 +84,16 @@ namespace Messerli.TempDirectory.Test
             Assert.DoesNotContain(SuffixSeparator, tempDirectory.Name);
         }
 
-        [UsedImplicitly]
-        public static IEnumerable<object[]> GetTempDirectoryBuilderConfigurations()
-        {
-            yield return new object[] { new TempDirectoryBuilder() };
-            yield return new object[] { new TempDirectoryBuilder().Prefix(Prefix) };
-            yield return new object[] { new TempDirectoryBuilder().Suffix(Suffix) };
-            yield return new object[] { new TempDirectoryBuilder().Prefix(Prefix).Suffix(Suffix) };
-            yield return new object[] { new TempDirectoryBuilder().Prefix(Prefix).PrefixSeparator(PrefixSeparator) };
-            yield return new object[] { new TempDirectoryBuilder().Suffix(Prefix).SuffixSeparator(SuffixSeparator) };
-            yield return new object[] { new TempDirectoryBuilder().Prefix(Prefix).PrefixSeparator(PrefixSeparator).Suffix(Prefix).SuffixSeparator(SuffixSeparator) };
-        }
+        public static TheoryData<ITempDirectoryBuilder> GetTempDirectoryBuilderConfigurations()
+            => new TheoryData<ITempDirectoryBuilder>
+            {
+                new TempDirectoryBuilder(),
+                new TempDirectoryBuilder().Prefix(Prefix),
+                new TempDirectoryBuilder().Suffix(Suffix),
+                new TempDirectoryBuilder().Prefix(Prefix).Suffix(Suffix),
+                new TempDirectoryBuilder().Prefix(Prefix).PrefixSeparator(PrefixSeparator),
+                new TempDirectoryBuilder().Suffix(Prefix).SuffixSeparator(SuffixSeparator),
+                new TempDirectoryBuilder().Prefix(Prefix).PrefixSeparator(PrefixSeparator).Suffix(Prefix).SuffixSeparator(SuffixSeparator),
+            };
     }
 }
