@@ -5,8 +5,8 @@ namespace Messerli.TempDirectory
 {
     public class TempDirectoryBuilder : ITempDirectoryBuilder
     {
-        private string _prefix = "";
-        private string _suffix = "";
+        private string _prefix = string.Empty;
+        private string _suffix = string.Empty;
         private string _prefixSeparator = "-";
         private string _suffixSeparator = "-";
 
@@ -71,11 +71,12 @@ namespace Messerli.TempDirectory
         private string GenerateDirectoryName()
         {
             var guid = Guid.NewGuid().ToString();
-            var prefixSubstring = string.IsNullOrEmpty(_prefix) ? "" : _prefix + _prefixSeparator;
-            var suffixSubstring = string.IsNullOrEmpty(_suffix) ? "" : _suffixSeparator + _suffix;
+            var prefixSubstring = string.IsNullOrEmpty(_prefix) ? string.Empty : _prefix + _prefixSeparator;
+            var suffixSubstring = string.IsNullOrEmpty(_suffix) ? string.Empty : _suffixSeparator + _suffix;
 
-           return $"{prefixSubstring}{guid}{suffixSubstring}";
+            return $"{prefixSubstring}{guid}{suffixSubstring}";
         }
+
         private static OnDispose CreateDirectoryDeletionFunction(string directoryPath)
         {
             return () => Directory.Delete(directoryPath, true);

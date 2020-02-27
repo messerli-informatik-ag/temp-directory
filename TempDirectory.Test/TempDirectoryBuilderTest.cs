@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using JetBrains.Annotations;
 using Xunit;
@@ -7,6 +7,11 @@ namespace Messerli.TempDirectory.Test
 {
     public class TempDirectoryBuilderTest
     {
+        private const string Prefix = "prefix";
+        private const string Suffix = "suffix";
+        private const string PrefixSeparator = "@";
+        private const string SuffixSeparator = ".";
+
         [Theory]
         [MemberData(nameof(GetTempDirectoryBuilderConfigurations))]
         public void CreatesTempDirectory(TempDirectoryBuilder tempDirectoryBuilder)
@@ -22,10 +27,11 @@ namespace Messerli.TempDirectory.Test
         public void DeletesTempDirectory(TempDirectoryBuilder tempDirectoryBuilder)
         {
             var tempDirectory = tempDirectoryBuilder.Create();
+            var fullName = tempDirectory.FullName;
             Assert.True(Directory.Exists(tempDirectory.FullName));
             tempDirectory.Dispose();
 
-            Assert.False(Directory.Exists(tempDirectory.FullName));
+            Assert.False(Directory.Exists(fullName));
         }
 
         [Theory]
@@ -105,10 +111,5 @@ namespace Messerli.TempDirectory.Test
             yield return new object[] { new TempDirectoryBuilder().Suffix(Prefix).SuffixSeparator(SuffixSeparator) };
             yield return new object[] { new TempDirectoryBuilder().Prefix(Prefix).PrefixSeparator(PrefixSeparator).Suffix(Prefix).SuffixSeparator(SuffixSeparator) };
         }
-
-        private const string Prefix = "prefix";
-        private const string Suffix = "suffix";
-        private const string PrefixSeparator = "@";
-        private const string SuffixSeparator = ".";
     }
 }

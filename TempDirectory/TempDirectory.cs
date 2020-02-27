@@ -5,7 +5,7 @@ namespace Messerli.TempDirectory
 {
     public delegate void OnDispose();
 
-    public class TempDirectory: IDisposable
+    public class TempDirectory : IDisposable
     {
         private readonly OnDispose _onDispose;
 
