@@ -16,5 +16,4 @@
         <Description>A TempDirectoryBuilder that provides unique temporary directories and automatically cleans them up for you.</Description>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
-    <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
