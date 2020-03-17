@@ -1,8 +1,0 @@
-framework auto-detect
-
-source https://www.nuget.org/api/v2
-
-nuget Microsoft.NET.Test.Sdk ~> 15.9
-nuget xunit ~> 2.4
-nuget xunit.runner.visualstudio ~> 2.4
-nuget JetBrains.Annotations ~> 2018.2
