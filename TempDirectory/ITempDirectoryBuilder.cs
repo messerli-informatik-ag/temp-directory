@@ -1,15 +1,14 @@
-namespace Messerli.TempDirectory
+namespace Messerli.TempDirectory;
+
+public interface ITempDirectoryBuilder
 {
-    public interface ITempDirectoryBuilder
-    {
-        ITempDirectoryBuilder Prefix(string prefix);
+    ITempDirectoryBuilder Prefix(string prefix);
 
-        ITempDirectoryBuilder PrefixSeparator(string prefixSeparator);
+    ITempDirectoryBuilder PrefixSeparator(string prefixSeparator);
 
-        ITempDirectoryBuilder Suffix(string suffix);
+    ITempDirectoryBuilder Suffix(string suffix);
 
-        ITempDirectoryBuilder SuffixSeparator(string suffixSeparator);
+    ITempDirectoryBuilder SuffixSeparator(string suffixSeparator);
 
-        TempDirectory Create();
-    }
+    TempDirectory Create();
 }
