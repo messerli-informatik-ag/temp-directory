@@ -1,5 +1,3 @@
-using System;
-
 namespace Messerli.TempDirectory;
 
 public delegate void OnDispose();

@@ -3,7 +3,8 @@
 		<PackageReference Include="Messerli.CodeStyle" PrivateAssets="all" />
 	</ItemGroup>
 	<PropertyGroup>
-		<Nullable>enable</Nullable>
 		<LangVersion>11.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 </Project>

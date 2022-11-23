@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-namespace Messerli.TempDirectory;
+﻿namespace Messerli.TempDirectory;
 
 public sealed class TempDirectoryBuilder : ITempDirectoryBuilder
 {
