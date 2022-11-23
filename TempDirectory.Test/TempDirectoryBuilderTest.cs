@@ -87,7 +87,7 @@ public sealed class TempDirectoryBuilderTest
     }
 
     public static TheoryData<ITempDirectoryBuilder> GetTempDirectoryBuilderConfigurations()
-        => new TheoryData<ITempDirectoryBuilder>
+        => new()
         {
             new TempDirectoryBuilder(),
             new TempDirectoryBuilder().Prefix(Prefix),
