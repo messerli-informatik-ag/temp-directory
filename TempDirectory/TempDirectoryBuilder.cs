@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 
 namespace Messerli.TempDirectory
@@ -47,10 +47,10 @@ namespace Messerli.TempDirectory
         }
 
         private ITempDirectoryBuilder DeepClone(
-            string prefix = null,
-            string suffix = null,
-            string prefixSeparator = null,
-            string suffixSeparator = null)
+            string? prefix = null,
+            string? suffix = null,
+            string? prefixSeparator = null,
+            string? suffixSeparator = null)
             => new TempDirectoryBuilder(
                 prefix ?? _prefix,
                 suffix ?? _suffix,

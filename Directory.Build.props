@@ -2,4 +2,8 @@
 	<ItemGroup>
 		<PackageReference Include="Messerli.CodeStyle" PrivateAssets="all" />
 	</ItemGroup>
+	<PropertyGroup>
+		<Nullable>enable</Nullable>
+		<LangVersion>9.0</LangVersion>
+	</PropertyGroup>
 </Project>
