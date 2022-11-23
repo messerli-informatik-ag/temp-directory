@@ -19,7 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Config", "Build Confi
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
 		global.json = global.json
-		Packages.props = Packages.props
+		Directory.Packages.props = Directory.Packages.props
+		NuGet.config = NuGet.config
 	EndProjectSection
 EndProject
 Global
