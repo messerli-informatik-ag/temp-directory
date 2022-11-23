@@ -5,7 +5,6 @@
         <IsPackable>false</IsPackable>
         <RootNamespace>Messerli.TempDirectory.Test</RootNamespace>
         <AssemblyName>Messerli.TempDirectory.Test</AssemblyName>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\TempDirectory\TempDirectory.csproj" />
