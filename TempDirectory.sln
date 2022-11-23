@@ -5,7 +5,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.md = readme.md
 		license_apache.txt = license_apache.txt
 		license_mit.txt = license_mit.txt
-		.travis.yml = .travis.yml
 		.gitignore = .gitignore
 		.editorconfig = .editorconfig
 		changelog.md = changelog.md

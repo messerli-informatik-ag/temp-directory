@@ -13,3 +13,6 @@ indent_style = tab
 
 [*.sln]
 end_of_line = crlf
+
+[*.yml]
+indent_size = 2
