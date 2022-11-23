@@ -1,4 +1,4 @@
-﻿namespace Messerli.TempDirectory
+namespace Messerli.TempDirectory
 {
     public interface ITempDirectoryBuilder
     {
