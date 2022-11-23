@@ -5,7 +5,6 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageVersion Include="Messerli.CodeStyle" Version="[2.2.0, 3)" />
-		<PackageVersion Include="JetBrains.Annotations" Version="[2018.3]" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="[15.9.2, 16)" />
