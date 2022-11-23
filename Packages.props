@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<ItemGroup>
-		<PackageReference Update="Messerli.CodeStyle" Version="[1.0.1, 2)" />
+		<PackageReference Update="Messerli.CodeStyle" Version="[2.2.0, 3)" />
 		<PackageReference Update="JetBrains.Annotations" Version="[2018.3]" />
 	</ItemGroup>
 	<ItemGroup>

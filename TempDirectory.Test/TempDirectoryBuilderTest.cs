@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Xunit;
 
@@ -20,6 +21,7 @@ namespace Messerli.TempDirectory.Test
 
         [Theory]
         [MemberData(nameof(GetTempDirectoryBuilderConfigurations))]
+        [SuppressMessage("IDisposableAnalyzers.Correctness", "IDISP017:Prefer using", Justification = "Intentional for testing purposes.")]
         public void DeletesTempDirectory(ITempDirectoryBuilder tempDirectoryBuilder)
         {
             var tempDirectory = tempDirectoryBuilder.Create();
