@@ -7,8 +7,6 @@
         <AssemblyName>Messerli.TempDirectory</AssemblyName>
     </PropertyGroup>
     <PropertyGroup>
-        <RepositoryUrl>https://github.com/messerli-informatik-ag/temp-directory</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
         <PackageId>Messerli.TempDirectory</PackageId>
         <PackageTags>temp directory</PackageTags>
         <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
