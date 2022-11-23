@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk; Microsoft.Build.CentralPackageVersions">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <Version>0.2.1</Version>
         <TargetFramework>netstandard2.0</TargetFramework>
@@ -7,13 +7,10 @@
         <AssemblyName>Messerli.TempDirectory</AssemblyName>
     </PropertyGroup>
     <PropertyGroup>
-        <RepositoryUrl>https://github.com/messerli-informatik-ag/temp-directory</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
         <PackageId>Messerli.TempDirectory</PackageId>
         <PackageTags>temp directory</PackageTags>
         <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
         <Copyright>© Messerli Informatik AG. All rights reserved.</Copyright>
         <Description>A TempDirectoryBuilder that provides unique temporary directories and automatically cleans them up for you.</Description>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 </Project>
