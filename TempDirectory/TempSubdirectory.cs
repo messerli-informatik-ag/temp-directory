@@ -17,9 +17,14 @@ public sealed class TempSubdirectory : IDisposable
     /// <summary>Creates a temporary subdirectory in the temporary folder of the current user.</summary>
     public static TempSubdirectory Create(string? prefix = null)
     {
+#if NET7_0_OR_GREATER
+        var tempSubdirectory = Directory.CreateTempSubdirectory(prefix);
+        return new TempSubdirectory(tempSubdirectory.FullName);
+#else
         var fullName = Path.Combine(Path.GetTempPath(), $"{prefix}{Guid.NewGuid()}");
         Directory.CreateDirectory(fullName);
         return new TempSubdirectory(fullName);
+#endif
     }
 
     public void Dispose()

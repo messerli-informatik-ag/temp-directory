@@ -12,6 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-dotnet@v3
+    - uses: actions/setup-dotnet@v3
+      name: Install .NET SDK 6.x
+      with:
+        version: 6.x
     - name: Restore dependencies
       run: dotnet restore /p:TreatWarningsAsErrors=true
     - name: Build
@@ -22,8 +26,8 @@ jobs:
     name: Generate NuGet Packages
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-dotnet@v1
+    - uses: actions/checkout@v3
+    - uses: actions/setup-dotnet@v3
       name: Install Current .NET SDK
     - name: Generate NuGet Packages
       run: dotnet pack --configuration Release --output nupkg /p:TreatWarningsAsErrors=true
