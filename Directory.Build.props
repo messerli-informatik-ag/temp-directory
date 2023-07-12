@@ -8,6 +8,8 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 	<PropertyGroup>
+		<Authors>Messerli Informatik AG</Authors>
+		<Copyright>© Messerli Informatik AG. All rights reserved.</Copyright>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
